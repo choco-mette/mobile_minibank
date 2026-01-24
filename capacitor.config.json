@@ -1,0 +1,10 @@
+{
+  "appId": "com.minibank.sister",
+  "appName": "minibank",
+  "webDir": "dist",
+  "plugins": {
+    "SplashScreen": {
+      "launchAutoHide": false
+    }
+  }
+}

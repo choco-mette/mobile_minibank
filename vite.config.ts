@@ -3,6 +3,7 @@ import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
   root: './src',
+  base: './',
   plugins: [
     tailwindcss(),
   ],
@@ -11,7 +12,7 @@ export default defineConfig({
       '/api': {
         target: 'https://service.bank.tomodachi.biz.id/',
         changeOrigin: true,
-        secure: false,
+        secure: true,
       },
     },
   },
@@ -19,5 +20,6 @@ export default defineConfig({
     outDir: '../dist',
     minify: false,
     emptyOutDir: true,
+    target: 'es2020',
   },
 });

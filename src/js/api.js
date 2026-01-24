@@ -1,4 +1,7 @@
-const API_BASE_URL = '/api/v1';
+// Gunakan proxy saat development (localhost), gunakan URL absolute saat production (APK)
+const API_BASE_URL = import.meta.env.MODE === 'development' 
+    ? '/api/v1' 
+    : 'https://service.bank.tomodachi.biz.id/api/v1';
 
 export const API = {
     async request(endpoint, method = 'GET', body = null, requireAuth = true) {

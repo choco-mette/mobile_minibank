@@ -1,10 +1,19 @@
 import { API } from '../js/api.js';
 
 export function init(container) {
-    container.innerHTML = `
-        <div class="flex flex-col h-full bg-gray-50">
+    // Force reset container content
+    container.innerHTML = '';
+    
+    // Create wrapper manually to ensure it exists
+    const wrapper = document.createElement('div');
+    wrapper.className = "flex flex-col h-full bg-gray-50";
+    wrapper.style.minHeight = "100vh";
+    wrapper.style.backgroundColor = "#f9fafb";
+    wrapper.style.width = "100%";
+    
+    wrapper.innerHTML = `
             <!-- Header -->
-            <div class="bg-blue-600 text-white p-4 shadow-md shrink-0">
+            <div class="bg-blue-600 text-white p-4 shadow-md shrink-0" style="background-color: #2563eb; color: white; padding: 1rem;">
                 <div class="flex items-center justify-center">
                     <h1 class="text-xl font-bold tracking-wider">MiniBank</h1>
                 </div>
@@ -12,7 +21,7 @@ export function init(container) {
 
             <!-- Form Container -->
             <div class="p-6 overflow-y-auto flex-1 flex flex-col justify-center">
-                <div class="bg-white rounded-xl shadow-sm p-6 mb-4">
+                <div class="bg-white rounded-xl shadow-sm p-6 mb-4" style="background-color: white; padding: 1.5rem; border-radius: 0.75rem;">
                     <h2 class="text-xl font-bold text-gray-800 mb-2">Login Page</h2>
                     <p class="text-sm text-gray-500 mb-6">Sign in to continue using MiniBank.</p>
                     
@@ -41,8 +50,9 @@ export function init(container) {
                     <p class="text-gray-500 text-sm">Don't have an account? <a href="#/register" class="text-blue-600 font-bold cursor-pointer">Register</a></p>
                 </div>
             </div>
-        </div>
     `;
+    
+    container.appendChild(wrapper);
 
     const form = container.querySelector('#login-form');
     const loginBtn = container.querySelector('#login-btn');

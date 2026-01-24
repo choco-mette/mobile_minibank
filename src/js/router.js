@@ -24,6 +24,7 @@ export const Router = {
 
     handleRoute() {
         let hash = window.location.hash || '#/';
+        
         // Remove query params if any for matching
         let path = hash.split('?')[0].replace('#', '');
         
@@ -47,7 +48,11 @@ export const Router = {
         
         if (route && route.init) {
             app.innerHTML = ''; // Start auth
-            route.init(app);
+            try {
+                route.init(app);
+            } catch(e) {
+                console.error('Router view error', e);
+            }
         } else {
             app.innerHTML = `
                 <div class="flex flex-col items-center justify-center h-screen">

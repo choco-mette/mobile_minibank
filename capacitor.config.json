@@ -3,8 +3,12 @@
   "appName": "minibank",
   "webDir": "dist",
   "plugins": {
+    "CapacitorHttp": {
+      "enabled": true
+    },
     "SplashScreen": {
-      "launchAutoHide": false
+      "launchAutoHide": true,
+      "launchShowDuration": 3000
     }
   }
 }
